@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio – Najaina Liantsoa</title>
+
+  <!-- Polices Google : Bricolage Grotesque (titres), Figtree (texte), JetBrains Mono (étiquettes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Feuille de style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ======================================================
+       NAVIGATION
+       ====================================================== -->
+  <header>
+    <div class="wrap">
+      <nav aria-label="Navigation principale">
+
+        <!-- Logo : remplace par ton prénom et ton nom -->
+        <a href="#home" class="logo">Najaina Liantsoa<span> </span>RAMANITRINIHAJA</a>
+
+        <!-- Liens du menu -->
+        <ul class="links" id="menu">
+          <li><a href="#home" class="active">Accueil</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button class="icon-btn" id="theme" type="button" aria-label="Changer de thème">◐</button></li>
+        </ul>
+
+        <!-- Bouton burger (visible seulement sur mobile) -->
+        <button class="icon-btn burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="wrap">
+
+    <!-- ====================================================
+         ACCUEIL
+         ==================================================== -->
+    <section id="home" class="hero">
+      <h1>Bonjour, je suis Najaina Liantsoa RAMANITRINIHAJA.</h1>
+      <p class="lead">
+        Étudiant en BTS SIO (option SLAM / SISR), je conçois des applications web
+        et je m’intéresse à l’administration des systèmes et des réseaux.
+        J’aime comprendre comment les choses fonctionnent, du code jusqu’au serveur.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="#contact">Me contacter</a>
+      </div>
+    </section>
+
+    <!-- Trois cartes de chiffres : modifie les valeurs si tu veux -->
+    <div class="about">
+      <div><strong>BTS SIO</strong><span>Services informatiques aux organisations, 2e année</span></div>
+      <div><strong>6+</strong><span>Projets réalisés en cours et en autonomie</span></div>
+      <div><strong>2 ans</strong><span>De formation, entre cours et projets</span></div>
+    </div>
+
+
+    <!-- ====================================================
+         PROJETS
+         Pour ajouter un projet : copie un bloc <article>.
+         data-cat = "web" ou "reseau" (sert aux filtres).
+         Remplace les href="#" par tes vrais liens.
+         ==================================================== -->
+    <section id="projets">
+      <div class="sec-head">
+        <h2>Mes projets</h2>
+        <p>Une sélection de réalisations scolaires et personnelles.</p>
+      </div>
+
+      <!-- Boutons de filtre -->
+      <div class="filters" role="group" aria-label="Filtrer les projets">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">Tous</button>
+        <button class="chip" type="button" data-filter="web" aria-pressed="false">Développement</button>
+        <button class="chip" type="button" data-filter="reseau" aria-pressed="false">Réseau et systèmes</button>
+      </div>
+
+      <!-- Grille des projets -->
+      <div class="grid">
+
+        <!-- Projet 1 : développement -->
+        <article class="card" data-cat="web">
+          <h3>SuperCar-Web</h3>
+          <p>Conception et développement d'un site web de concession automobile permettant la présentation des véhicules, la gestion des demandes 
+             d'essai ainsi que la communication avec les clients.
+             Le projet a été réalisé avec HTML, CSS, Bootstrap, PHP et MySQL.</p>
+          <div class="tags">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+          <div class="plinks">
+            <a href="https://canva.link/dr3z23f4k70sno2" target="_blank" rel="noopener">Canva</a>
+            <a href="https://drive.google.com/file/d/1e7rzU3CMyk0Lxvw9EhDRjSupStyfahiM/view?usp=sharing" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://drive.google.com/file/d/1O4c0WyCdqikwixtXSNHwREHB7scv7HOa/view?usp=sharing" target="_blank" rel="noopener">Contexte</a>
+            <a href="https://github.com/najaina28/SuperCars_najaina" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <!-- Projet 2 : développement -->
+        <article class="card" data-cat="web">
+          <h3>CineTrack</h3>
+          <p>Développement d'une application de gestion de cinéma permettant l'administration des films, salles, séances et réservations. 
+            Réalisé en JavaFX selon l'architecture MVC avec une base de données relationnelle pour assurer une gestion efficace des informations.</p>
+          <div class="tags">
+            <span class="tag">Java Swing</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+          <div class="plinks">
+            <a href="https://canva.link/p4fahpv8ulo5tmw" target="_blank" rel="noopener">Canva</a>
+            <a href="#" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://drive.google.com/file/d/1bHuOQg19sEmuX9qHuB7rVNEXay8MWU6U/view?usp=sharing" target="_blank" rel="noopener">Contexte</a>
+          </div>
+        </article>
+
+        <!-- Projet 3 : réseau et systèmes (étiquettes vertes avec la classe "sisr") -->
+        <article class="card" data-cat="web">
+          <h3>Projet de Stage : Application de Gestion Juridique</h3>
+          <p>Développement d'une application web destinée à un cabinet juridique afin de centraliser la gestion des clients,
+             avocats, dossiers, rendez-vous et audiences.
+             Ce projet a été réalisé lors d'un stage de 6 semaines chez Active Services Digital en utilisant PHP et MySQL.</p>
+          <div class="tags">
+            <span class="tag sisr">GLPI</span>
+            <span class="tag sisr">Debian</span>
+            <span class="tag sisr">Apache</span>
+          </div>
+          <div class="plinks">
+            <a href="https://canva.link/t4vgzfyj4qbip5u" target="_blank" rel="noopener">Canva</a>
+            <a href="#" target="_blank" rel="noopener">Documentation</a>
+          </div>
+        </article>
+
+        <!-- Projet 4 : réseau et systèmes -->
+        <!-- <article class="card" data-cat="reseau">
+          <h3>Active Directory et GPO</h3>
+          <p>Mise en place d’un domaine Windows Server : utilisateurs, groupes, partages et stratégies de groupe.</p>
+          <div class="tags">
+            <span class="tag sisr">Windows Server</span>
+            <span class="tag sisr">AD DS</span>
+            <span class="tag sisr">DHCP / DNS</span>
+          </div>
+          <div class="plinks">
+            <a href="#" target="_blank" rel="noopener">Canva</a>
+            <a href="#" target="_blank" rel="noopener">Documentation</a>
+            <a href="#" target="_blank" rel="noopener">Contexte</a>
+          </div>
+        </article>
+ -->
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         COMPÉTENCES
+         data-w = niveau en pourcentage (affiché aussi dans le texte).
+         ==================================================== -->
+    <section id="competences">
+      <div class="sec-head">
+        <h2>Compétences</h2>
+        <p>Ce que j’ai appris en cours et en stage.</p>
+      </div>
+
+      <div class="skills">
+
+        <!-- Groupe 1 : développement -->
+        <div class="skill-box">
+          <h3>Développement</h3>
+          <div class="bar">
+            <div class="bar-top"><span>HTML / CSS</span><span>85%</span></div>
+            <div class="track"><div class="fill" data-w="85"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-top"><span>JavaScript</span><span>70%</span></div>
+            <div class="track"><div class="fill" data-w="70"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-top"><span>PHP / SQL</span><span>75%</span></div>
+            <div class="track"><div class="fill" data-w="75"></div></div>
+          </div>
+        </div>
+
+        <!-- Groupe 2 : réseaux et systèmes -->
+        <!-- <div class="skill-box">
+          <h3>Réseaux et systèmes</h3>
+          <div class="bar">
+            <div class="bar-top"><span>Linux (Debian)</span><span>70%</span></div>
+            <div class="track"><div class="fill" data-w="70"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-top"><span>Windows Server</span><span>65%</span></div>
+            <div class="track"><div class="fill" data-w="65"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-top"><span>Cisco / VLAN</span><span>60%</span></div>
+            <div class="track"><div class="fill" data-w="60"></div></div>
+          </div>
+        </div> -->
+
+        <!-- Groupe 3 : outils et méthodes -->
+        <div class="skill-box">
+          <h3>Outils et méthodes</h3>
+          <div class="bar">
+            <div class="bar-top"><span>Git / GitHub</span><span>75%</span></div>
+            <div class="track"><div class="fill" data-w="75"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-top"><span>Cybersécurité</span><span>55%</span></div>
+            <div class="track"><div class="fill" data-w="55"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar-top"><span>Gestion de projet</span><span>65%</span></div>
+            <div class="track"><div class="fill" data-w="65"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================
+         CONTACT
+         ==================================================== -->
+    <section id="contact">
+      <div class="sec-head">
+        <h2>Contact</h2>
+        <p>Une question ou un message ? Écrivez-moi.</p>
+      </div>
+
+      <div class="contact">
+
+        <!-- Colonne de gauche : tes coordonnées -->
+        <div class="info">
+          <p><b>Email</b></p>
+          <a href="mailto:najaina28@gmail.com">najaina28@gmail.com</a>
+
+          <p><b>GitHub</b></p>
+          <a href="https://github.com/najaina28" target="_blank" rel="noopener">Github</a>
+
+          <p><b>LinkedIn</b></p>
+          <a href="https://www.linkedin.com/in/najaina-liantsoa-ramanitrinihaja-76497228b/" target="_blank" rel="noopener">Linkedin</a>
+        </div>
+
+        <!-- Colonne de droite : formulaire (voir script.js, partie 6) -->
+        <div class="box">
+          <label>Nom
+            <input id="f-name" type="text" autocomplete="name">
+          </label>
+          <label>Email
+            <input id="f-mail" type="email" autocomplete="email">
+          </label>
+          <label>Message
+            <textarea id="f-msg"></textarea>
+          </label>
+          <button class="btn primary" id="send" type="button">Envoyer le message</button>
+          <p class="note" id="note" role="status"></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       PIED DE PAGE
+       ====================================================== -->
+  <footer>
+    © <span id="year"></span> Prénom Nom, étudiant en BTS SIO
+  </footer>
+
+  <!-- Le script est chargé en dernier pour que la page soit déjà affichée -->
+  <script src="script.js"></script>
+</body>
+</html>

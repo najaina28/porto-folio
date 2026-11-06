@@ -1,0 +1,609 @@
+/* ==========================================================
+   PORTFOLIO BTS SIO – FEUILLE DE STYLE
+   ----------------------------------------------------------
+   Sommaire :
+   1. Variables (couleurs, polices) + thème sombre
+   2. Base (reset, texte, titres)
+   3. Navigation
+   4. Accueil (hero) + boutons
+   5. Cartes de chiffres (à propos)
+   6. Titres de section
+   7. Projets (filtres + cartes)
+   8. Compétences (barres)
+   9. Contact (infos + formulaire)
+   10. Pied de page
+   11. Accessibilité (mouvement réduit)
+   ========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES
+   Pour changer les couleurs du site, modifie uniquement ici.
+   ========================================================== */
+:root {
+  /* Couleurs du thème clair */
+  --bg: #f6f7fb;            /* fond de la page */
+  --surface: #ffffff;       /* fond des cartes */
+  --ink: #16203a;           /* texte principal */
+  --muted: #5b6784;         /* texte secondaire */
+  --line: #e2e6f0;          /* bordures */
+  --accent: #4338ca;        /* couleur principale (indigo) */
+  --accent-soft: #e8e8fb;   /* version claire de l’accent */
+  --mint: #0f9d8a;          /* couleur secondaire (vert menthe) */
+  --mint-soft: #dcf5f0;     /* version claire du vert */
+  --warm: #c2410c;          /* orange : 3e barre + messages d’erreur */
+  --on-accent: #ffffff;     /* texte posé sur un bouton coloré */
+
+  /* Polices */
+  --font-title: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Thème sombre : activé par le bouton ◐ (voir script.js) */
+:root[data-theme="dark"] {
+  --bg: #10131f;
+  --surface: #181c2c;
+  --ink: #eef0f8;
+  --muted: #a2abc4;
+  --line: #272d44;
+  --accent: #a5a0ff;
+  --accent-soft: #25264a;
+  --mint: #4fd6c1;
+  --mint-soft: #143a38;
+  --warm: #fb9a6a;
+  --on-accent: #10131f;
+  color-scheme: dark;
+}
+
+
+/* ==========================================================
+   2. BASE
+   ========================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;      /* défilement doux vers les ancres */
+  scroll-padding-top: 90px;     /* évite que le menu cache les titres */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+}
+
+/* Contour visible quand on navigue au clavier */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Conteneur centré qui limite la largeur du contenu */
+.wrap {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Espacement vertical commun à toutes les sections */
+section {
+  padding: 72px 0;
+}
+
+
+/* ==========================================================
+   3. NAVIGATION
+   ========================================================== */
+header {
+  position: sticky;             /* reste collé en haut au défilement */
+  top: 0;
+  z-index: 20;
+  padding: 14px 0;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 10px 8px 22px;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+/* Liste des liens du menu */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Lien survolé ou lien de la section actuelle */
+.links a:hover,
+.links a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Petit bouton rond (thème et menu burger) */
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Le bouton burger n’apparaît que sur mobile */
+.burger {
+  display: none;
+}
+
+/* --- Mobile : le menu devient une liste déroulante --- */
+@media (max-width: 720px) {
+  .burger {
+    display: grid;
+  }
+
+  header .wrap {
+    position: relative;
+  }
+
+  .links {
+    display: none;              /* caché tant qu’on n’a pas cliqué */
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 24px;
+    right: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .links.open {
+    display: flex;              /* classe ajoutée par script.js */
+  }
+}
+
+
+/* ==========================================================
+   4. ACCUEIL (HERO) + BOUTONS
+   ========================================================== */
+.hero {
+  max-width: 760px;
+  padding: 72px 0 40px;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem);   /* taille qui s’adapte à l’écran */
+  font-weight: 800;
+}
+
+.hero .lead {
+  max-width: 34em;
+  margin: 22px 0 30px;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 26px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Bouton principal, coloré */
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+
+/* ==========================================================
+   5. CARTES DE CHIFFRES (À PROPOS)
+   ========================================================== */
+.about {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.about div {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.about strong {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+}
+
+.about span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================
+   6. TITRES DE SECTION
+   ========================================================== */
+.sec-head {
+  margin-bottom: 34px;
+}
+
+.sec-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+}
+
+.sec-head p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+
+/* ==========================================================
+   7. PROJETS
+   ========================================================== */
+
+/* --- Boutons de filtre --- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.chip {
+  font: inherit;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+/* Filtre actuellement sélectionné */
+.chip[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+/* --- Grille de cartes : 2 colonnes, 1 sur mobile --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Une carte projet --- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+}
+
+.card[hidden] {
+  display: none;                /* carte masquée par un filtre */
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* --- Étiquettes de technologies --- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;             /* pousse les étiquettes en bas de la carte */
+}
+
+.tag {
+  padding: 4px 11px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+/* Variante verte pour les projets réseau (SISR) */
+.tag.sisr {
+  background: var(--mint-soft);
+  color: var(--mint);
+}
+
+/* --- Liens du projet : Canva, Documentation, Contexte --- */
+.plinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.plinks a {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.plinks a:hover {
+  background: var(--accent-soft);
+}
+
+
+/* ==========================================================
+   8. COMPÉTENCES
+   ========================================================== */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .skills {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+}
+
+.skill-box h3 {
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+}
+
+/* Une ligne : nom + pourcentage + barre */
+.bar {
+  margin-bottom: 16px;
+}
+
+.bar-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.bar-top span:last-child {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+/* Le rail gris de la barre */
+.track {
+  height: 8px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* La partie colorée : sa largeur est animée par script.js */
+.fill {
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--accent);
+  transition: width 1s ease;
+}
+
+/* Une couleur différente par groupe de compétences */
+.skill-box:nth-child(2) .fill { background: var(--mint); }
+.skill-box:nth-child(3) .fill { background: var(--warm); }
+
+
+/* ==========================================================
+   9. CONTACT
+   ========================================================== */
+.contact {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 36px;
+}
+
+@media (max-width: 760px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Colonne de gauche : email, GitHub, LinkedIn --- */
+.info p,
+.info a {
+  display: block;
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.info a:hover {
+  color: var(--accent);
+}
+
+.info b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* --- Colonne de droite : formulaire --- */
+.box {
+  display: grid;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Message sous le bouton (succès ou erreur) */
+.note {
+  min-height: 1.2em;
+  margin: 0;
+  color: var(--mint);
+  font-size: 0.9rem;
+}
+
+.note.error {
+  color: var(--warm);
+}
+
+
+/* ==========================================================
+   10. PIED DE PAGE
+   ========================================================== */
+footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+
+/* ==========================================================
+   11. ACCESSIBILITÉ
+   Désactive les animations pour les personnes qui le demandent
+   dans les réglages de leur appareil.
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fill { transition: none; }
+  .btn:hover { transform: none; }
+}
