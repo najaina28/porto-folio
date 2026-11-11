@@ -92,7 +92,6 @@ a {
 h1, h2, h3 {
   font-family: var(--font-title);
   line-height: 1.1;
-  margin: 0;
   letter-spacing: -0.02em;
 }
 
@@ -153,7 +152,6 @@ nav {
 }
 
 .links a {
-  display: block;
   padding: 8px 16px;
   border-radius: 999px;
   text-decoration: none;
@@ -522,6 +520,17 @@ nav {
   }
 }
 
+/* Contact centré : titre + formulaire au milieu */
+#contact .sec-head {
+  text-align: center;
+}
+
+#contact .contact {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 /* --- Colonne de gauche : email, GitHub, LinkedIn --- */
 .info p,
 .info a {
@@ -584,6 +593,47 @@ textarea {
   color: var(--warm);
 }
 
+
+#A-propos {
+    display: flex;
+    justify-content: center;
+    padding: 72px 0;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 100%;
+}
+.about-card {
+    width: 100%;
+    padding: 30px;
+    text-align: left;
+    line-height: 2;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.social-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+}
+
+.social-footer a {
+    color: var(--muted);
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.social-footer a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
 
 /* ==========================================================
    10. PIED DE PAGE

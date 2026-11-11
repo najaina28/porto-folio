@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <!-- Feuille de style -->
   <link rel="stylesheet" href="style.css">
@@ -24,7 +25,7 @@
       <nav aria-label="Navigation principale">
 
         <!-- Logo : remplace par ton prénom et ton nom -->
-        <a href="#home" class="logo">Najaina Liantsoa<span> </span>RAMANITRINIHAJA</a>
+        <a href="#home" class="logo">Najaina Liantsoa<span>
 
         <!-- Liens du menu -->
         <ul class="links" id="menu">
@@ -51,9 +52,9 @@
     <section id="home" class="hero">
       <h1>Bonjour, je suis Najaina Liantsoa RAMANITRINIHAJA.</h1>
       <p class="lead">
-        Étudiant en BTS SIO (option SLAM / SISR), je conçois des applications web
-        et je m’intéresse à l’administration des systèmes et des réseaux.
-        J’aime comprendre comment les choses fonctionnent, du code jusqu’au serveur.
+        Étudiant en deuxième année de BTS SIO, option SLAM, 
+        je conçois et développe des applications web. Passionné par l’informatique, 
+        j’aime apprendre de nouvelles technologies et transformer des idées en solutions concrètes.
       </p>
       <div class="btns">
         <a class="btn primary" href="#projets">Voir mes projets</a>
@@ -68,6 +69,36 @@
       <div><strong>2 ans</strong><span>De formation, entre cours et projets</span></div>
     </div>
 
+   <section id="A-propos">
+    <div class="about-container">
+      <div class="sec-head">
+        <h2>À propos</h2>
+      </div>
+
+        <div class="about-card">
+            <div><strong>Nom : </strong>RAMANITRINIHAJA Najaina Liantsoa</div>
+            <div><strong>Âge :</strong> 23</div>
+            <div><strong>Téléphone :</strong> +230 5865 6660</div>
+            <div><strong>Adresse :</strong> Palma Road, Quatre Bornes</div>
+            <div><strong>Langage :</strong> Malagasy, Français, Anglais</div>
+
+            <div class="social-footer">
+                <a href="https://www.linkedin.com/in/najaina-liantsoa-ramanitrinihaja-76497228b/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:najaina28@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <a href="https://github.com/najaina28" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- ====================================================
          PROJETS
@@ -78,7 +109,6 @@
     <section id="projets">
       <div class="sec-head">
         <h2>Mes projets</h2>
-        <p>Une sélection de réalisations scolaires et personnelles.</p>
       </div>
 
       <!-- Boutons de filtre -->
@@ -95,8 +125,7 @@
         <article class="card" data-cat="web">
           <h3>SuperCar-Web</h3>
           <p>Conception et développement d'un site web de concession automobile permettant la présentation des véhicules, la gestion des demandes 
-             d'essai ainsi que la communication avec les clients.
-             Le projet a été réalisé avec HTML, CSS, Bootstrap, PHP et MySQL.</p>
+             d'essai ainsi que la communication avec les clients.</p>
           <div class="tags">
             <span class="tag">PHP</span>
             <span class="tag">MySQL</span>
@@ -131,7 +160,7 @@
           <h3>Projet de Stage : Application de Gestion Juridique</h3>
           <p>Développement d'une application web destinée à un cabinet juridique afin de centraliser la gestion des clients,
              avocats, dossiers, rendez-vous et audiences.
-             Ce projet a été réalisé lors d'un stage de 6 semaines chez Active Services Digital en utilisant PHP et MySQL.</p>
+             Ce projet a été réalisé lors d'un stage de 6 semaines chez Active Services Digital.</p>
           <div class="tags">
             <span class="tag sisr">PHP</span>
             <span class="tag sisr">MySQL</span>
@@ -169,7 +198,6 @@
     <section id="competences">
       <div class="sec-head">
         <h2>Compétences</h2>
-        <p>Ce que j’ai appris en cours et en stage.</p>
       </div>
 
       <div class="skills">
@@ -239,22 +267,11 @@
     <section id="contact">
       <div class="sec-head">
         <h2>Contact</h2>
-        <p>Une question ou un message ? Écrivez-moi.</p>
       </div>
 
       <div class="contact">
 
-        <!-- Colonne de gauche : tes coordonnées -->
-        <div class="info">
-          <p><b>Email</b></p>
-          <a href="mailto:najaina28@gmail.com">najaina28@gmail.com</a>
-
-          <p><b>GitHub</b></p>
-          <a href="https://github.com/najaina28" target="_blank" rel="noopener">Github</a>
-
-          <p><b>LinkedIn</b></p>
-          <a href="https://www.linkedin.com/in/najaina-liantsoa-ramanitrinihaja-76497228b/" target="_blank" rel="noopener">Linkedin</a>
-        </div>
+        
 
         <!-- Colonne de droite : formulaire (voir script.js, partie 6) -->
         <div class="box">
@@ -281,7 +298,7 @@
        PIED DE PAGE
        ====================================================== -->
   <footer>
-    © <span id="year"></span> Prénom Nom, étudiant en BTS SIO
+    © <span id="year"></span> Najaina Liantsoa RAMANITRINIHAJA, étudiant en BTS SIO
   </footer>
 
   <!-- Le script est chargé en dernier pour que la page soit déjà affichée -->
